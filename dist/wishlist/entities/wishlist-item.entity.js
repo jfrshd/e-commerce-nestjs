@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WishlistItem = void 0;
 const typeorm_1 = require("typeorm");
-const user_entity_1 = require("../../auth/entities/user.entity");
+const nest_auth_module_1 = require("nest-auth-module");
 let WishlistItem = class WishlistItem {
 };
 exports.WishlistItem = WishlistItem;
@@ -44,8 +44,8 @@ __decorate([
     __metadata("design:type", Date)
 ], WishlistItem.prototype, "updatedAt", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, (user) => user.wishlistItems),
-    __metadata("design:type", user_entity_1.User)
+    (0, typeorm_1.ManyToOne)(() => nest_auth_module_1.User),
+    __metadata("design:type", nest_auth_module_1.User)
 ], WishlistItem.prototype, "user", void 0);
 exports.WishlistItem = WishlistItem = __decorate([
     (0, typeorm_1.Entity)('wishlist_items')

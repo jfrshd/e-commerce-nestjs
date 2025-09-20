@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { User } from '../../auth/entities/user.entity';
+import { User } from 'nest-auth-module';
 
 export enum OrderStatus {
   PENDING = 'pending',
@@ -44,6 +44,6 @@ export class Order {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => User, (user) => user.orders)
+  @ManyToOne(() => User)
   user: User;
 }

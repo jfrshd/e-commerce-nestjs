@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
-import { User } from '../auth/entities/user.entity';
+import { User } from 'nest-auth-module';
 import { Address } from '../addresses/entities/address.entity';
 import { Order } from '../orders/entities/order.entity';
 import { CartItem } from '../cart/entities/cart-item.entity';

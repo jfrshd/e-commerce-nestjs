@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DatabaseConfig = void 0;
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
-const user_entity_1 = require("../auth/entities/user.entity");
+const nest_auth_module_1 = require("nest-auth-module");
 const address_entity_1 = require("../addresses/entities/address.entity");
 const order_entity_1 = require("../orders/entities/order.entity");
 const cart_item_entity_1 = require("../cart/entities/cart-item.entity");
@@ -29,7 +29,7 @@ let DatabaseConfig = class DatabaseConfig {
             username: this.configService.get('DB_USERNAME'),
             password: this.configService.get('DB_PASSWORD'),
             database: this.configService.get('DB_NAME'),
-            entities: [user_entity_1.User, address_entity_1.Address, order_entity_1.Order, cart_item_entity_1.CartItem, wishlist_item_entity_1.WishlistItem],
+            entities: [nest_auth_module_1.User, address_entity_1.Address, order_entity_1.Order, cart_item_entity_1.CartItem, wishlist_item_entity_1.WishlistItem],
             synchronize: this.configService.get('NODE_ENV') === 'development',
             logging: false,
         };

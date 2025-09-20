@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { User } from '../../auth/entities/user.entity';
+import { User } from 'nest-auth-module';
 
 @Entity('wishlist_items')
 export class WishlistItem {
@@ -24,6 +24,6 @@ export class WishlistItem {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => User, (user) => user.wishlistItems)
+  @ManyToOne(() => User)
   user: User;
 }

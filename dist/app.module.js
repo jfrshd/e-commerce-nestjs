@@ -10,7 +10,7 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
-const auth_module_1 = require("./auth/auth.module");
+const nest_auth_module_1 = require("nest-auth-module");
 const database_config_1 = require("./config/database.config");
 let AppModule = class AppModule {
 };
@@ -25,7 +25,7 @@ exports.AppModule = AppModule = __decorate([
             typeorm_1.TypeOrmModule.forRootAsync({
                 useClass: database_config_1.DatabaseConfig,
             }),
-            auth_module_1.AuthModule,
+            nest_auth_module_1.AuthModule,
         ],
     })
 ], AppModule);

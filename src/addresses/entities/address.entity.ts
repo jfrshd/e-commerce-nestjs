@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { User } from '../../auth/entities/user.entity';
+import { User } from 'nest-auth-module';
 
 @Entity('addresses')
 export class Address {
@@ -42,6 +42,6 @@ export class Address {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => User, (user) => user.addresses)
+  @ManyToOne(() => User)
   user: User;
 }
