@@ -28,6 +28,12 @@ let EmailService = class EmailService {
         console.log('🔍 EmailService.sendVerificationEmail: Sending verification email');
         console.log('🔍 EmailService.sendVerificationEmail: Email:', email);
         console.log('🔍 EmailService.sendVerificationEmail: Code:', code);
+        console.log('📧 DEVELOPMENT MODE: Email verification code for', email, 'is:', code);
+        console.log('📧 In production, this would be sent via email');
+        if (!process.env.SMTP_USER || process.env.SMTP_USER === 'your-email@gmail.com') {
+            console.log('✅ EmailService.sendVerificationEmail: Skipping email send (development mode)');
+            return;
+        }
         const mailOptions = {
             from: process.env.SMTP_USER,
             to: email,
@@ -60,6 +66,12 @@ let EmailService = class EmailService {
         console.log('🔍 EmailService.sendPasswordResetEmail: Sending password reset email');
         console.log('🔍 EmailService.sendPasswordResetEmail: Email:', email);
         console.log('🔍 EmailService.sendPasswordResetEmail: Code:', code);
+        console.log('📧 DEVELOPMENT MODE: Password reset code for', email, 'is:', code);
+        console.log('📧 In production, this would be sent via email');
+        if (!process.env.SMTP_USER || process.env.SMTP_USER === 'your-email@gmail.com') {
+            console.log('✅ EmailService.sendPasswordResetEmail: Skipping email send (development mode)');
+            return;
+        }
         const mailOptions = {
             from: process.env.SMTP_USER,
             to: email,
